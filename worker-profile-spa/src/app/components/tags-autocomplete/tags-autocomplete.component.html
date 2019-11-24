@@ -1,0 +1,19 @@
+<div>
+  <tag-input
+    [ngModel]="skills"
+    [displayBy]="'name'"
+    [identifyBy]="'id'"
+    [onlyFromAutocomplete]="isOnlyAuto"
+    (onAdd)="onAdd($event)"
+    (onRemove)="onRemove($event)"
+  >
+    <tag-input-dropdown
+      [dynamicUpdate]="false"
+      [zIndex]="10000"
+      [autocompleteObservable]="request"
+      [displayBy]="'name'"
+      [identifyBy]="'id'"
+    >
+    </tag-input-dropdown>
+  </tag-input>
+</div>

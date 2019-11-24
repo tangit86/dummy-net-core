@@ -1,0 +1,68 @@
+<div>
+  <h1>Search</h1>
+
+  <p>Skills</p>
+  <app-tags-autocomplete
+    [isOnlyAuto]="true"
+    (skillsChanged)="skillsChanged($event)"
+  >
+  </app-tags-autocomplete>
+
+  <p></p>
+  <p>Location</p>
+  <app-locations-autocomplete
+    (locationChanged)="locationChanged($event)"
+  ></app-locations-autocomplete>
+
+  <p></p>
+  <p>Radius (in km)</p>
+  <input
+    [value]="radiusQuery.radius"
+    (input)="radiusQuery.radius = $event.target.value"
+  />
+
+  <button mat-button (click)="searchProfiles(page, pageSize)">Search</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Created By</th>
+        <th scope="col">Skills</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profile of profiles">
+        <td>{{ profile.name }}</td>
+        <td>{{ profile.location.address }}</td>
+        <td>{{ profile.uid }}</td>
+        <td>
+          <span *ngFor="let skill of profile.skills" class="profile-skill">
+            {{ skill.name }}
+          </span>
+        </td>
+        <th scope="row">
+          <a routerLink="/edit/{{ profile.id }}">Edit</a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="changePage(page, pageSize)"
+    >
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="25">25 items per page</option>
+    </select>
+  </div>
+</div>

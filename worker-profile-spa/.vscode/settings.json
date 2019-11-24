@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/5367f895-3c1b-45f6-b13f-cefbab23cf00/resourceGroups/worker-profiles-1/providers/Microsoft.Web/sites/worker-api-spa",
+    "appService.deploySubpath": ""
+}

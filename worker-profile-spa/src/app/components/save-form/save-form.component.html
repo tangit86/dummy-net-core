@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label class="col-md-4">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          [value]="curProf.name"
+          (input)="curProf.name = $event.target.value"
+        />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Skills </label>
+        <app-tags-autocomplete
+          [isOnlyAuto]="false"
+          [skills]="initProf.skills"
+          (skillsChanged)="skillsChanged($event)"
+        ></app-tags-autocomplete>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Address</label>
+
+        <app-locations-autocomplete
+          [initLocation]="initProf.location"
+          (locationChanged)="locationChanged($event)"
+        ></app-locations-autocomplete>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="save()"
+          *ngIf="!allowNext"
+        >
+          Save
+        </button>
+        <div *ngIf="allowNext">
+          <a href="/create">Create New</a>
+          <span>&nbsp;|&nbsp;</span>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="allowNext = false"
+            *ngIf="allowNext"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+      <div id="error">
+        <span>{{ error }}</span>
+      </div>
+    </form>
+  </div>
+</div>

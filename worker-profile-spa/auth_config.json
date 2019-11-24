@@ -1,0 +1,5 @@
+{
+  "clientId": "<SPA PAGE CLIENT ID IN AUTH0>",
+  "domain": "<AUTH0 DOMAIN>",
+  "audience": "<AUTH0 AUDIENCE>"
+}
