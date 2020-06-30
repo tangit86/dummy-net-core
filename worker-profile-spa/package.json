@@ -30,7 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "angular-ng-autocomplete": "^1.1.14",
     "express": "^4.17.1",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "helmet": "^3.19.0",
     "jwks-rsa": "^1.6.0",
     "morgan": "^1.9.1",
